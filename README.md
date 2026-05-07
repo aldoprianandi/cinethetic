@@ -47,6 +47,8 @@ The same content is registered in four theme variants:
 
 ## Commands
 
+Requires Node.js 22 or newer.
+
 ```bash
 npm install
 npm run dev

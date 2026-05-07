@@ -30,5 +30,8 @@ jobs:
       - name: List Remotion compositions
         run: npm run compositions
 
+      - name: Render demo smoke test
+        run: npm run render:demo -- manifest
+
       - name: Audit dependencies
         run: npm audit --audit-level=moderate
