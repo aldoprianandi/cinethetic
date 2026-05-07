@@ -37,12 +37,12 @@ The same content is registered in four theme variants:
 
 ## Theme Variations
 
-| Manifest | Terminal |
-| --- | --- |
+| Manifest                                              | Terminal                                              |
+| ----------------------------------------------------- | ----------------------------------------------------- |
 | ![Manifest variation](docs/demo-manifest-preview.png) | ![Terminal variation](docs/demo-terminal-preview.png) |
 
-| Brutalist | Neoprint |
-| --- | --- |
+| Brutalist                                               | Neoprint                                              |
+| ------------------------------------------------------- | ----------------------------------------------------- |
 | ![Brutalist variation](docs/demo-brutalist-preview.png) | ![Neoprint variation](docs/demo-neoprint-preview.png) |
 
 ## Commands
@@ -51,7 +51,19 @@ Requires Node.js 22 or newer.
 
 ```bash
 npm install
+npm run verify
+```
+
+Open Remotion Studio:
+
+```bash
 npm run dev
+```
+
+Useful individual commands:
+
+```bash
+npm run check:public
 npm run compositions
 npm run typecheck
 npm run render:slide
@@ -71,6 +83,8 @@ node scripts/render-demo.mjs neoprint
 ```
 
 ## How To Customize
+
+For a practical recipe, see [`docs/CUSTOMIZATION.md`](docs/CUSTOMIZATION.md).
 
 ### 1. Edit The Content
 
@@ -154,6 +168,14 @@ docs/
 ## Public Safety
 
 This repo is intentionally scoped as a generic renderer demo. It excludes private content operations, brand assets, generated output, environment files, local assistant commands, and internal worktrees.
+
+Before publishing changes, run:
+
+```bash
+npm run verify
+```
+
+Security and public-safety notes live in [`SECURITY.md`](SECURITY.md).
 
 ## License
 

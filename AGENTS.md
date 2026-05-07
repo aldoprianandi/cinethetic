@@ -24,6 +24,13 @@ The project should stay focused on:
 Run the smallest useful check for the change, and use the full verification set before claiming the repo is demo-ready:
 
 ```bash
+npm run verify
+```
+
+Useful targeted checks:
+
+```bash
+npm run check:public
 npm run typecheck
 npm run compositions
 npm run render:demo -- manifest
@@ -65,6 +72,7 @@ node scripts/render-demo.mjs neoprint
 
 - Keep `README.md` beginner-friendly and demo-focused.
 - Keep `DESIGN-SYSTEM.md` focused on reusable visual rules.
+- Keep `SECURITY.md` and `docs/CUSTOMIZATION.md` aligned with public setup and safety expectations.
 - If previews change materially, regenerate the affected images in `docs/`.
 - Keep `AGENTS.md` and `CLAUDE.md` aligned when changing agent instructions.
 

@@ -9,13 +9,15 @@
   "scripts": {
     "dev": "remotion studio src/index.ts",
     "studio": "remotion studio src/index.ts",
+    "check:public": "node scripts/public-check.mjs",
     "compositions": "remotion compositions src/index.ts",
     "typecheck": "tsc --noEmit",
     "bundle": "remotion bundle src/index.ts",
     "render:slide": "remotion still src/index.ts DemoManifestSlide out/demo-slide.png",
     "render:preview": "remotion still src/index.ts DemoManifestPreview out/demo-preview.png",
     "render:demo": "node scripts/render-demo.mjs",
-    "render:palette": "node scripts/palette-test.mjs"
+    "render:palette": "node scripts/palette-test.mjs",
+    "verify": "npm run check:public && npm run typecheck && npm run compositions && npm run render:demo -- manifest && npm audit --audit-level=moderate"
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.2.8",
