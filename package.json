@@ -1,0 +1,37 @@
+{
+  "name": "cinethetic",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "remotion studio src/index.ts",
+    "studio": "remotion studio src/index.ts",
+    "compositions": "remotion compositions src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "bundle": "remotion bundle src/index.ts",
+    "render:slide": "remotion still src/index.ts DemoManifestSlide out/demo-slide.png",
+    "render:preview": "remotion still src/index.ts DemoManifestPreview out/demo-preview.png",
+    "render:demo": "node scripts/render-demo.mjs",
+    "render:palette": "node scripts/palette-test.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/manrope": "^5.2.8",
+    "@fontsource-variable/sora": "^5.2.8",
+    "@fontsource/archivo-black": "^5.2.8",
+    "@fontsource/barlow-condensed": "^5.2.8",
+    "@fontsource/cormorant-garamond": "^5.2.11",
+    "@fontsource/dm-serif-display": "^5.2.8",
+    "@fontsource/inter-tight": "^5.2.7",
+    "@fontsource/space-grotesk": "^5.2.10",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "remotion": "4.0.436"
+  },
+  "devDependencies": {
+    "@remotion/cli": "4.0.436",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "puppeteer": "^24.40.0",
+    "typescript": "5.9.3"
+  }
+}

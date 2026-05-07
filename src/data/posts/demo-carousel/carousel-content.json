@@ -1,0 +1,73 @@
+{
+  "name": "Cinethetic Demo Carousel",
+  "slides": [
+    {
+      "type": "text-title",
+      "counter": "1 / 5",
+      "eyebrow": "Programmable Design",
+      "title": "Build carousels like design systems.",
+      "subtitle": "Write structured content once, render polished social slides with Remotion."
+    },
+    {
+      "type": "text-quote",
+      "counter": "2 / 5",
+      "quote": "A carousel is not a stack of screenshots. It is a small product experience.",
+      "context": "The template keeps typography, spacing, surfaces, and pagination consistent across the whole deck."
+    },
+    {
+      "type": "text-tips",
+      "counter": "3 / 5",
+      "eyebrow": "Workflow",
+      "title": "From content model to final PNG.",
+      "intro": "The renderer separates slide meaning from visual treatment.",
+      "tips": [
+        {
+          "number": "01",
+          "title": "Model the story",
+          "body": "Define each slide as JSON: title, quote, tips, comparison, stat, or CTA."
+        },
+        {
+          "number": "02",
+          "title": "Pick a theme",
+          "body": "Choose a reusable visual variant instead of hand-designing every slide."
+        },
+        {
+          "number": "03",
+          "title": "Render repeatably",
+          "body": "Use Remotion stills to export consistent Instagram-ready frames."
+        }
+      ]
+    },
+    {
+      "type": "text-compare",
+      "counter": "4 / 5",
+      "eyebrow": "Why Code",
+      "title": "Manual design vs programmatic layout",
+      "left": {
+        "label": "Manual",
+        "items": [
+          "Hard to keep spacing consistent",
+          "Slow to revise across slides",
+          "Easy to drift from the design system"
+        ]
+      },
+      "right": {
+        "label": "Programmatic",
+        "items": [
+          "Reusable slide archetypes",
+          "Theme-level typography and color",
+          "Repeatable export pipeline"
+        ]
+      }
+    },
+    {
+      "type": "story-cta",
+      "counter": "5 / 5",
+      "eyebrow": "Try It",
+      "title": "Fork the structure. Replace the content.",
+      "body": "Use this demo as a starting point for editorial posts, product explainers, launch notes, or internal visual docs.",
+      "buttonLabel": "Render the demo",
+      "footer": "Remotion + React + TypeScript"
+    }
+  ]
+}
