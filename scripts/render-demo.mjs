@@ -10,18 +10,21 @@ const content = JSON.parse(
     "utf8",
   ),
 );
+const variantDefinitions = JSON.parse(
+  readFileSync(resolve(cwd, "src/data/demo-variants.json"), "utf8"),
+);
 
 if (!Array.isArray(content.slides) || content.slides.length === 0) {
   console.error("Demo content must include at least one slide in `slides`.");
   process.exit(1);
 }
 
-const allVariants = [
-  { name: "manifest", composition: "DemoManifest" },
-  { name: "terminal", composition: "DemoTerminal" },
-  { name: "brutalist", composition: "DemoBrutalist" },
-  { name: "neoprint", composition: "DemoNeoprint" },
-];
+const allVariants = variantDefinitions
+  .filter((variant) => variant.public)
+  .map((variant) => ({
+    name: variant.name,
+    composition: variant.compositionPrefix,
+  }));
 
 const requestedVariant = process.argv[2];
 const variants = requestedVariant

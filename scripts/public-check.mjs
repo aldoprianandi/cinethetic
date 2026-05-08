@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 
 const publishableFiles = execFileSync(
   "git",
@@ -10,6 +10,8 @@ const publishableFiles = execFileSync(
 )
   .split("\n")
   .filter(Boolean);
+
+const existingPublishableFiles = publishableFiles.filter((file) => existsSync(file));
 
 const blockedPathPatterns = [
   /^node_modules\//,
@@ -75,7 +77,7 @@ const isLikelyText = (buffer) => {
 
 const failures = [];
 
-for (const file of publishableFiles) {
+for (const file of existingPublishableFiles) {
   if (blockedPathPatterns.some((pattern) => pattern.test(file))) {
     failures.push(`${file}: blocked tracked path`);
     continue;
@@ -103,5 +105,5 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Public safety check passed for ${publishableFiles.length} publishable files.`,
+  `Public safety check passed for ${existingPublishableFiles.length} publishable files.`,
 );

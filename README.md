@@ -23,6 +23,7 @@ Designing one carousel manually is fine. Repeating the same layout decisions acr
 
 The public demo is defined in:
 
+- `src/data/demo-variants.json`
 - `src/data/posts/demo-carousel/carousel-content.json`
 - `src/data/posts/demo-carousel/post-data.ts`
 - `src/compositions/InstagramCarousel.tsx`
@@ -50,7 +51,7 @@ The same content is registered in four theme variants:
 Requires Node.js 22 or newer.
 
 ```bash
-npm install
+npm ci
 npm run verify
 ```
 
@@ -64,6 +65,8 @@ Useful individual commands:
 
 ```bash
 npm run check:public
+npm run check:data
+npm run test:data
 npm run compositions
 npm run typecheck
 npm run render:slide
@@ -109,27 +112,23 @@ Supported slide types are defined in `src/types.ts`.
 Open:
 
 ```text
-src/data/posts/demo-carousel/post-data.ts
+src/data/demo-variants.json
 ```
 
-Change the theme import and `variant` value. Available themes live in `src/theme.ts`, including:
+The public demo variants are registered there. Public variants currently use:
 
 - `manifestV16Theme`
 - `terminalV17Theme`
 - `brutalistV21Theme`
 - `neoprintV24Theme`
-- `gazetteV18Theme`
-- `blueprintV19Theme`
-- `polaroidV20Theme`
 
-### 3. Add A New Carousel
+Theme token objects live in `src/theme.ts`.
 
-1. Copy `src/data/posts/demo-carousel/` to `src/data/posts/my-carousel/`.
-2. Edit `carousel-content.json`.
-3. Export a new `CarouselData` object in the new `post-data.ts`.
-4. Import it in `src/compositions/InstagramCarousel.tsx`.
-5. Register a slide and preview composition in `src/Root.tsx`.
-6. Run `npm run compositions` and render with `remotion still`.
+### 3. Use Your Own Content
+
+For the fastest path, edit `src/data/posts/demo-carousel/carousel-content.json` in place and keep the existing slide types.
+
+For a separate content set, copy `src/data/posts/demo-carousel/` to a new folder and wire that content into `src/demo-variants.ts`. Keep `src/data/demo-variants.json` for public theme registrations, not private content operations.
 
 ### 4. Render All Demo Slides
 
@@ -153,14 +152,16 @@ out/demo/
 
 ```text
 src/
+  demo-variants.ts
+  data/demo-variants.json
   compositions/InstagramCarousel.tsx
   data/posts/demo-carousel/
   theme.ts
   types.ts
 scripts/
-  design-system.mjs
-  mock-shared.mjs
-  palette-test.mjs
+  check-data.mjs
+  public-check.mjs
+  render-demo.mjs
 docs/
   demo-*-preview.png
 ```

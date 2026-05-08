@@ -4,19 +4,20 @@ This guide covers the practical paths for adapting Cinethetic without turning th
 
 ## Quick Path
 
-1. Copy the demo content folder:
-
-```bash
-cp -R src/data/posts/demo-carousel src/data/posts/my-carousel
-```
-
-2. Edit the new JSON file:
+For the simplest customization path, edit the current demo JSON:
 
 ```text
-src/data/posts/my-carousel/carousel-content.json
+src/data/posts/demo-carousel/carousel-content.json
 ```
 
-3. Keep the slide `type` values valid:
+Then run:
+
+```bash
+npm run check:data
+npm run render:demo
+```
+
+Keep the slide `type` values valid:
 
 - `text-title`
 - `text-quote`
@@ -25,9 +26,9 @@ src/data/posts/my-carousel/carousel-content.json
 - `text-stat`
 - `story-cta`
 
-4. Export a new `CarouselData` object from `post-data.ts`.
-5. Register the composition in `src/Root.tsx`.
-6. Render a still:
+For a separate content set, copy the demo folder and wire that content into `src/demo-variants.ts`. Keep `src/data/demo-variants.json` focused on public theme registrations.
+
+Render a still:
 
 ```bash
 npm run compositions
@@ -38,28 +39,25 @@ npx remotion still src/index.ts DemoManifestSlide out/my-slide.png
 
 Theme variants are centralized in `src/theme.ts`.
 
-For the demo carousel, edit:
+Public demo registrations are centralized in:
 
 ```text
-src/data/posts/demo-carousel/post-data.ts
+src/data/demo-variants.json
 ```
 
-Use one of the existing theme exports:
+Use one of the public demo theme exports:
 
 - `manifestV16Theme`
 - `terminalV17Theme`
 - `brutalistV21Theme`
 - `neoprintV24Theme`
-- `gazetteV18Theme`
-- `blueprintV19Theme`
-- `polaroidV20Theme`
 
 When adding a new theme, update:
 
 - `src/theme.ts`
-- `src/Root.tsx`
-- `scripts/render-demo.mjs`
+- `src/data/demo-variants.json`
 - `README.md` if the theme is part of the public demo
+- `docs/demo-*-preview.png` after visual output changes
 
 ## Add A Slide Type
 
@@ -84,6 +82,8 @@ Local images should live under `public/images/` and be referenced from slide dat
 ```
 
 Do not commit private brand assets, paid templates, analytics screenshots, customer screenshots, or generated campaign output.
+
+Remote URLs, data URLs, absolute paths, and `..` traversal segments are rejected by the data checker.
 
 ## Release Checklist
 

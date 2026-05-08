@@ -1,0 +1,34 @@
+[
+  {
+    "name": "manifest",
+    "displayName": "Manifest",
+    "variant": "v16-manifest",
+    "theme": "manifestV16Theme",
+    "compositionPrefix": "DemoManifest",
+    "public": true
+  },
+  {
+    "name": "terminal",
+    "displayName": "Terminal",
+    "variant": "v17-terminal",
+    "theme": "terminalV17Theme",
+    "compositionPrefix": "DemoTerminal",
+    "public": true
+  },
+  {
+    "name": "brutalist",
+    "displayName": "Brutalist",
+    "variant": "v21-brutalist",
+    "theme": "brutalistV21Theme",
+    "compositionPrefix": "DemoBrutalist",
+    "public": true
+  },
+  {
+    "name": "neoprint",
+    "displayName": "Neoprint",
+    "variant": "v24-neoprint",
+    "theme": "neoprintV24Theme",
+    "compositionPrefix": "DemoNeoprint",
+    "public": true
+  }
+]

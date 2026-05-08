@@ -1,214 +1,60 @@
 # Cinethetic Design System
 
-This file is the source of truth for visual consistency across `palette-test`, `mock-*`, and future carousel templates.
+Cinethetic is a Remotion carousel renderer. The design system is intentionally small: structured slide data, a compact set of slide archetypes, and theme tokens that can restyle the same content without changing the JSON.
 
-## System Name
+## Source Of Truth
 
-- Name: `Cinethetic Editorial System`
-- Intent: editorial, assertive, scroll-stopping, minimal ornament, high contrast, brutalist headline energy with disciplined spacing.
+- Public demo variants: `src/data/demo-variants.json`
+- Theme tokens: `src/theme.ts`
+- Slide data contract: `src/types.ts`
+- Renderer implementation: `src/compositions/InstagramCarousel.tsx`
+- Data validation: `scripts/check-data.mjs`
 
-## Core Principle
+`src/theme.ts` is the visual source of truth. Documentation should describe that implementation, not a separate palette system.
 
-- One visual language, many decks.
-- Variety should come from content structure and theme application, not random font swaps or arbitrary color logic.
+## Public Themes
 
-## Typography
+The public demo currently ships four variants:
 
-Typography is fixed across all themes.
+- `manifest`: editorial black-on-paper type system
+- `terminal`: green-on-black developer console treatment
+- `brutalist`: loud poster treatment with high-contrast yellow and red
+- `neoprint`: dark risograph/screen-print treatment with orange accent
 
-- Display font: `Archivo Black`
-- Body font: `Inter Tight`
-- Rule: no theme-specific body font swaps
-
-### Type Scale
-
-- `eyebrow`
-  - 11px
-  - 700
-  - uppercase
-  - tracking `0.22em`
-- `display-hero`
-  - 52px
-  - 900
-  - uppercase
-  - line-height `0.9`
-- `display-xl`
-  - 46px
-  - 900
-  - uppercase
-  - line-height `0.9`
-- `display-lg`
-  - 40px
-  - 900
-  - uppercase
-  - line-height `0.92`
-- `display-md`
-  - 34px
-  - 900
-  - uppercase
-  - line-height `0.94`
-- `title-sm`
-  - 28px
-  - 900
-  - uppercase
-  - line-height `0.94`
-- `body`
-  - 15px
-  - 520
-  - line-height `1.58`
-- `body-strong`
-  - 15px
-  - 600
-  - line-height `1.52`
-- `body-sm`
-  - 13px
-  - 520
-  - line-height `1.5`
-- `meta`
-  - 10px
-  - 600
-  - tracking `0.04em`
-- `button`
-  - 13px
-  - 700
-  - uppercase
-  - tracking `0.09em`
-
-## Color System
-
-Each theme has exactly two surfaces:
-
-- `primary surface`
-  - the identity-heavy surface
-- `inverse surface`
-  - the counter-surface used for alternation
-
-Do not invent extra background colors per deck unless they are explicitly added to the system.
-
-### Theme B: `ink-coral`
-
-- Primary / dark
-  - bg `#12151e`
-  - fg `#f5efe6`
-  - muted `#97a0ae`
-  - accent `#e45c50`
-- Inverse / light
-  - bg `#f5efe6`
-  - fg `#171411`
-  - muted `#6d6660`
-  - accent `#e45c50`
-
-### Theme H: `carbon-lime`
-
-- Primary / dark
-  - bg `#10120d`
-  - fg `#eff2e8`
-  - muted `#a4ae92`
-  - accent `#bbd61f`
-- Inverse / light
-  - bg `#d3e92f`
-  - fg `#11140f`
-  - muted `#44521a`
-  - accent `#11140f`
-
-## Surface Rules
-
-- Accent must be semantically stable inside each surface.
-- `B` always uses coral as accent on both surfaces.
-- `H` uses lime accent on dark surface, black accent on lime surface.
-- Buttons, chips, dividers, and pagination active states must derive from the same accent token for that surface.
-- Decorative shapes must use border/panel/glow tokens, not ad-hoc opaque fills.
-
-## Spacing
-
-Base spacing scale:
-
-- `4`
-- `8`
-- `12`
-- `16`
-- `20`
-- `24`
-- `32`
-
-Canvas rules for mock slides:
-
-- width `540`
-- height `720`
-- horizontal padding `42`
-- top padding `44`
-- bottom padding `34`
-
-## Shape Language
-
-- Card corners: square to slightly softened only through internal panels, not playful rounding
-- Panel radius: `20`
-- Callout radius: `18`
-- Pill/button radius: `999`
-- Rule width: `42`
-- Rule height: `3`
-
-Decorative motifs allowed:
-
-- ghost ring
-- ghost block
-- oversized background word
-- soft radial glow
-
-Decorative motifs not allowed:
-
-- random gradients unrelated to theme
-- extra fonts as decoration
-- novelty icons
-- multiple competing ornament styles in one deck
-
-## Component Set
-
-Allowed reusable components:
-
-- `eyebrow`
-- `headline`
-- `supporting copy`
-- `rule`
-- `panel`
-- `callout`
-- `button`
-- `compare column`
-- `metric card`
-- `footer + pagination`
-
-If a layout needs a new component, define it once in the shared system before using it in one deck.
+Each public theme is registered in `src/data/demo-variants.json`, which drives Remotion composition registration and demo rendering.
 
 ## Slide Archetypes
 
-Every deck should be composed from these archetypes:
+The public demo content uses these slide types:
 
-- `hook`
-  - big statement, minimal support
-- `confession`
-  - narrative honesty or framing
-- `process`
-  - numbered steps or method explanation
-- `compare`
-  - two-column contrast with mirrored structure
-- `proof`
-  - stats, metrics, transformation, or evidence
-- `cta`
-  - one action, one reason, one clear button
+- `text-title`
+- `text-quote`
+- `text-tips`
+- `text-compare`
+- `story-cta`
 
-## Consistency Rules
+Additional renderer support exists for story/image-heavy slide types in `src/types.ts`, but public samples should stay generic and safe.
 
-- Never change fonts between themes.
-- Never create a new accent logic inside a single script.
-- Never let `palette-test` define colors separately from the mock system.
-- Never let one deck invent a different button style.
-- Never mix “soft editorial serif” slides into this system unless the whole system changes.
+## Token Rules
 
-## Implementation Source Of Truth
+- Keep canvas dimensions in the theme object and register compositions from those values.
+- Keep theme identity in color, typography, spacing, and progress treatment.
+- Keep content meaning in JSON, not in theme-specific branches.
+- Add a public theme only by updating the variant registry, theme tokens, docs, previews, and validation/render checks together.
 
-- Machine-readable tokens: `scripts/design-system.mjs`
-- Shared mock renderer: `scripts/mock-shared.mjs`
+## Content Rules
 
-## Next Step
+- Slide text should survive normal copy edits without manual layout changes.
+- Long-copy fields should have documented budgets and validation checks.
+- Image assets should be public-relative paths under `public/images/`.
+- Do not allow remote URLs, data URLs, private brand assets, paid templates, analytics screenshots, or generated campaign output in public demo data.
 
-After this file is approved, all rendering scripts and Remotion variants should be aligned to this system instead of inventing local exceptions.
+## Visual Quality Checks
+
+Before publishing visual changes:
+
+```bash
+npm run verify
+```
+
+Also inspect the generated previews in `out/demo/*/preview.png`. `verify` renders every public demo variant, but human inspection is still required for visual polish, text balance, and contrast.

@@ -1,8 +1,28 @@
 {
   "name": "cinethetic",
   "version": "0.1.0",
+  "description": "Public Remotion demo for JSON-driven social carousel visuals.",
   "private": true,
+  "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldoprianandi/cinethetic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aldoprianandi/cinethetic/issues"
+  },
+  "homepage": "https://github.com/aldoprianandi/cinethetic#readme",
+  "keywords": [
+    "carousel",
+    "creative-coding",
+    "design-system",
+    "programmatic-design",
+    "react",
+    "remotion",
+    "social-media",
+    "typescript"
+  ],
   "engines": {
     "node": ">=22"
   },
@@ -10,14 +30,15 @@
     "dev": "remotion studio src/index.ts",
     "studio": "remotion studio src/index.ts",
     "check:public": "node scripts/public-check.mjs",
+    "check:data": "node scripts/check-data.mjs",
+    "test:data": "node scripts/check-data.test.mjs",
     "compositions": "remotion compositions src/index.ts",
     "typecheck": "tsc --noEmit",
     "bundle": "remotion bundle src/index.ts",
     "render:slide": "remotion still src/index.ts DemoManifestSlide out/demo-slide.png",
     "render:preview": "remotion still src/index.ts DemoManifestPreview out/demo-preview.png",
     "render:demo": "node scripts/render-demo.mjs",
-    "render:palette": "node scripts/palette-test.mjs",
-    "verify": "npm run check:public && npm run typecheck && npm run compositions && npm run render:demo -- manifest && npm audit --audit-level=moderate"
+    "verify": "npm run check:public && npm run check:data && npm run test:data && npm run typecheck && npm run compositions && npm run render:demo && npm audit --audit-level=moderate"
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.2.8",
@@ -35,8 +56,6 @@
   "devDependencies": {
     "@remotion/cli": "4.0.436",
     "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
-    "puppeteer": "^24.40.0",
     "typescript": "5.9.3"
   }
 }
