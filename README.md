@@ -1,23 +1,23 @@
 # Cinethetic
 
-Programmable social carousel renderer built with Remotion, React, and TypeScript.
+Small public Remotion, React, and TypeScript demo for JSON-driven carousel visuals.
 
-Cinethetic turns structured slide data into polished Instagram-ready stills. It is designed for editorial posts, product explainers, launch notes, and repeatable social content where the layout should stay consistent across many decks.
+Cinethetic shows one simple idea: keep slide content in structured data, then render it through reusable visual themes. It is intentionally small, public-safe, and built as a clean example rather than a production content engine.
 
 ![Cinethetic manifest demo](docs/demo-manifest-preview.png)
 
-## Why Use This
+## Why This Exists
 
-Designing carousels manually is fine for one post. It becomes slow when you need consistent typography, spacing, pagination, themes, and repeated exports. Cinethetic keeps content in JSON and lets React/Remotion handle the layout.
+Designing one carousel manually is fine. Repeating the same layout decisions across many slides gets slow. This repo keeps the demo content in JSON and lets React/Remotion handle layout, typography, pagination, and export.
 
 ## What It Includes
 
-- Remotion still compositions for social carousel slides
-- React + TypeScript slide renderer
-- JSON-driven content model
-- reusable theme variants with one demo rendered in multiple visual directions
+- Remotion still compositions for carousel-style slides
+- React + TypeScript renderer components
+- JSON-driven demo content
+- reusable theme variants using the same content
 - design-system notes in `DESIGN-SYSTEM.md`
-- demo rendering scripts for all slides and previews
+- rendering scripts for demo slides and previews
 
 ## Demo
 
@@ -165,9 +165,11 @@ docs/
   demo-*-preview.png
 ```
 
-## Public Safety
+## Scope
 
-This repo is intentionally scoped as a generic renderer demo. It excludes private content operations, brand assets, generated output, environment files, local assistant commands, and internal worktrees.
+This is a renderer demo, not a production workflow. It excludes private content operations, brand assets, generated output, environment files, local assistant commands, and internal worktrees.
+
+## Public Safety
 
 Before publishing changes, run:
 
@@ -180,7 +182,3 @@ Security and public-safety notes live in [`SECURITY.md`](SECURITY.md).
 ## License
 
 MIT.
-
-## Notes
-
-This public version intentionally includes only the renderer and a safe generic demo. Production workflows, brand assets, generated output, and local assistant command files are excluded.
