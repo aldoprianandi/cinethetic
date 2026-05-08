@@ -51,7 +51,7 @@
     "@fontsource/space-grotesk": "^5.2.10",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "remotion": "4.0.436"
+    "remotion": "4.0.458"
   },
   "devDependencies": {
     "@remotion/cli": "4.0.436",
