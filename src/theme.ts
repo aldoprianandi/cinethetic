@@ -1,7 +1,6 @@
 import type {CarouselTheme} from "./types";
 
 const threeByFourCanvas = {width: 1080, height: 1440};
-const fourByFiveCanvas = {width: 1080, height: 1350};
 
 export const defaultCarouselTheme: CarouselTheme = {
   canvas: {width: 1080, height: 1350},
@@ -534,82 +533,6 @@ export const storyNoirV15Theme: CarouselTheme = {
   },
   radius: {
     panel: 22,
-  },
-};
-
-export const launchSignatureTheme: CarouselTheme = {
-  ...galleryV5Theme,
-  canvas: fourByFiveCanvas,
-  spacing: {
-    outerX: 82,
-    outerY: 84,
-    previewGap: 34,
-  },
-  colors: {
-    ...galleryV5Theme.colors,
-    bg: "#09090b",
-    fg: "#f4efe6",
-    muted: "#b7ab9a",
-    accent: "#ca8f5a",
-    overlayStrong: "rgba(8, 8, 10, 0.84)",
-    overlaySoft: "rgba(10, 10, 12, 0.22)",
-    panel: "rgba(18, 17, 20, 0.88)",
-    panelBorder: "rgba(255, 241, 220, 0.14)",
-  },
-  typography: {
-    ...galleryV5Theme.typography,
-    displayFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    bodyFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 15,
-    counterSize: 16,
-    coverTitleLarge: 108,
-    coverTitleMedium: 94,
-    coverTitleSmall: 82,
-    subtitleSize: 20,
-    promptHeadingSize: 22,
-    promptBodySize: 21,
-    metaSize: 15,
-    ctaSize: 17,
-  },
-  radius: {
-    panel: 26,
-  },
-};
-
-export const launchStudioTheme: CarouselTheme = {
-  ...storyIvoryV12Theme,
-  canvas: fourByFiveCanvas,
-  spacing: {
-    outerX: 78,
-    outerY: 78,
-    previewGap: 34,
-  },
-  colors: {
-    ...storyIvoryV12Theme.colors,
-    bg: "#f2ece3",
-    fg: "#1f1a16",
-    muted: "#8f775f",
-    accent: "#c86e45",
-    panel: "rgba(255, 252, 247, 0.92)",
-    panelBorder: "rgba(43, 35, 28, 0.08)",
-  },
-  typography: {
-    ...storyIvoryV12Theme.typography,
-    displayFamily: "\"Cormorant Garamond\", Georgia, serif",
-    bodyFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 14,
-    counterSize: 15,
-    coverTitleLarge: 98,
-    coverTitleMedium: 88,
-    coverTitleSmall: 76,
-    subtitleSize: 19,
-    promptHeadingSize: 22,
-    promptBodySize: 20,
-    metaSize: 15,
-    ctaSize: 17,
-  },
-  radius: {
-    panel: 24,
   },
 };
 

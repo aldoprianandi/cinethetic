@@ -31,6 +31,8 @@ Useful targeted checks:
 
 ```bash
 npm run check:public
+npm run check:data
+npm run test:data
 npm run typecheck
 npm run compositions
 npm run render:demo -- manifest
@@ -60,10 +62,11 @@ node scripts/render-demo.mjs neoprint
 
 - Prefer the existing React and Remotion composition patterns.
 - Keep slide data typed through `src/types.ts`.
+- Keep public demo variants registered through `src/data/demo-variants.json`.
 - Keep themes centralized in `src/theme.ts` unless there is a clear reason to split them.
 - When adding a theme, also add or update:
-  - composition registration in `src/Root.tsx`
-  - demo rendering support in `scripts/render-demo.mjs`
+  - public demo registration in `src/data/demo-variants.json`
+  - data validation in `scripts/check-data.mjs` when the public variant set changes
   - README examples or preview references when user-facing
 - When adding a slide type, update the type definitions and renderer logic together.
 - Avoid one-off layout hacks that only work for the current demo text.

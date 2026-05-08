@@ -12,9 +12,10 @@ Run the public-safety guard before publishing changes:
 
 ```bash
 npm run check:public
+npm run check:data
 ```
 
-The check fails when tracked files include ignored output directories, local assistant folders, environment files, common credential formats, or private-business terms that do not belong in the public demo.
+The public check fails when tracked files include ignored output directories, local assistant folders, environment files, common credential formats, or private-business terms that do not belong in the public demo. The data check fails when carousel JSON or public demo variant metadata is malformed or references unsafe image asset paths.
 
 Use the full verification command before calling a release/demo ready:
 

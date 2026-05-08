@@ -262,24 +262,3 @@ export type CarouselData = {
   theme: CarouselTheme;
   slides: CarouselSlide[];
 };
-
-export type LaunchPostFormat = "signature-prompt-showcase" | "studio-note-study";
-
-export type LaunchPostPlan = {
-  index: number;
-  title: string;
-  format: LaunchPostFormat;
-  job: string;
-  coverHook: string;
-  cta: string;
-  visualDirection: string;
-};
-
-export type LaunchPlan = {
-  name: string;
-  account: string;
-  positioning: string;
-  primaryGoals: string[];
-  pinnedPosts: number[];
-  posts: LaunchPostPlan[];
-};
