@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@remotion/cli": "4.0.458",
-    "@types/react": "19.2.14",
+    "@types/react": "19.2.15",
     "typescript": "5.9.3"
   }
 }
