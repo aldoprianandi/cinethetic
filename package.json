@@ -1,6 +1,22 @@
 {
   "name": "cinethetic",
   "version": "0.1.0",
+  "description": "Programmable social carousels — one JSON file, nine themes, rendered with Remotion, React, and TypeScript",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldoprianandi/cinethetic.git"
+  },
+  "keywords": [
+    "remotion",
+    "react",
+    "typescript",
+    "carousel",
+    "instagram",
+    "social-media",
+    "design-system",
+    "image-generation"
+  ],
   "private": true,
   "type": "module",
   "engines": {
@@ -16,6 +32,8 @@
     "render:slide": "remotion still src/index.ts DemoManifestSlide out/demo-slide.png",
     "render:preview": "remotion still src/index.ts DemoManifestPreview out/demo-preview.png",
     "render:demo": "node scripts/render-demo.mjs",
+    "render:reel": "remotion render src/index.ts ThemeReel out/showcase/theme-reel.gif --codec=gif --scale=0.5",
+    "render:hero": "remotion still src/index.ts HeroGrid out/showcase/hero.png --scale=0.5",
     "render:palette": "node scripts/palette-test.mjs",
     "verify": "npm run check:public && npm run typecheck && npm run compositions && npm run render:demo -- manifest && npm audit --audit-level=moderate"
   },
@@ -30,10 +48,10 @@
     "@fontsource/space-grotesk": "^5.2.10",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "remotion": "4.0.436"
+    "remotion": "4.0.475"
   },
   "devDependencies": {
-    "@remotion/cli": "4.0.436",
+    "@remotion/cli": "4.0.475",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "puppeteer": "^24.40.0",
