@@ -1,28 +1,14 @@
 export type CarouselVariant =
-  | "v1-cinematic"
-  | "v2-editorial"
-  | "v3-studio"
-  | "v4-monolith"
-  | "v5-gallery"
-  | "v6-side-rail"
-  | "v7-bottom-band"
-  | "v8-split-editorial"
-  | "v9-archive-sheet"
-  | "v10-tech-luxe"
-  | "v11-story-signal"
-  | "v12-story-ivory"
-  | "v13-story-burnt"
-  | "v14-story-proof"
-  | "v15-story-noir"
-  | "v16-manifest"
-  | "v17-terminal"
-  | "v18-gazette"
-  | "v19-blueprint"
-  | "v20-polaroid"
-  | "v21-brutalist"
-  | "v22-vapor"
-  | "v23-redact"
-  | "v24-neoprint";
+  | "cinematic"
+  | "manifest"
+  | "terminal"
+  | "gazette"
+  | "blueprint"
+  | "polaroid"
+  | "brutalist"
+  | "vapor"
+  | "redact"
+  | "neoprint";
 
 export type CarouselTheme = {
   canvas: {width: number; height: number};
@@ -261,25 +247,4 @@ export type CarouselData = {
   variant?: CarouselVariant;
   theme: CarouselTheme;
   slides: CarouselSlide[];
-};
-
-export type LaunchPostFormat = "signature-prompt-showcase" | "studio-note-study";
-
-export type LaunchPostPlan = {
-  index: number;
-  title: string;
-  format: LaunchPostFormat;
-  job: string;
-  coverHook: string;
-  cta: string;
-  visualDirection: string;
-};
-
-export type LaunchPlan = {
-  name: string;
-  account: string;
-  positioning: string;
-  primaryGoals: string[];
-  pinnedPosts: number[];
-  posts: LaunchPostPlan[];
 };

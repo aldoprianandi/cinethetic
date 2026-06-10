@@ -19,7 +19,12 @@ if (!Array.isArray(content.slides) || content.slides.length === 0) {
 const allVariants = [
   { name: "manifest", composition: "DemoManifest" },
   { name: "terminal", composition: "DemoTerminal" },
+  { name: "gazette", composition: "DemoGazette" },
+  { name: "blueprint", composition: "DemoBlueprint" },
+  { name: "polaroid", composition: "DemoPolaroid" },
   { name: "brutalist", composition: "DemoBrutalist" },
+  { name: "vapor", composition: "DemoVapor" },
+  { name: "redact", composition: "DemoRedact" },
   { name: "neoprint", composition: "DemoNeoprint" },
 ];
 

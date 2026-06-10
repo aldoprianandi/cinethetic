@@ -1,52 +1,48 @@
 import content from "./carousel-content.json";
 import {
-  brutalistV21Theme,
-  manifestV16Theme,
-  neoprintV24Theme,
-  terminalV17Theme,
+  blueprintTheme,
+  brutalistTheme,
+  gazetteTheme,
+  manifestTheme,
+  neoprintTheme,
+  polaroidTheme,
+  redactTheme,
+  terminalTheme,
+  vaporTheme,
 } from "../../../theme";
 import type {CarouselData, CarouselSlide} from "../../../types";
 
 const data = content as {name: string; slides: CarouselSlide[]};
 
 const createDemoCarousel = (
-  name: string,
+  label: string,
   variant: CarouselData["variant"],
   theme: CarouselData["theme"],
 ): CarouselData => ({
-  name,
+  name: `${data.name} - ${label}`,
   variant,
   theme,
   slides: data.slides,
 });
 
-export const demoManifestCarousel = createDemoCarousel(
-  `${data.name} - Manifest`,
-  "v16-manifest",
-  manifestV16Theme,
-);
+export const demoManifestCarousel = createDemoCarousel("Manifest", "manifest", manifestTheme);
+export const demoTerminalCarousel = createDemoCarousel("Terminal", "terminal", terminalTheme);
+export const demoGazetteCarousel = createDemoCarousel("Gazette", "gazette", gazetteTheme);
+export const demoBlueprintCarousel = createDemoCarousel("Blueprint", "blueprint", blueprintTheme);
+export const demoPolaroidCarousel = createDemoCarousel("Polaroid", "polaroid", polaroidTheme);
+export const demoBrutalistCarousel = createDemoCarousel("Brutalist", "brutalist", brutalistTheme);
+export const demoVaporCarousel = createDemoCarousel("Vapor", "vapor", vaporTheme);
+export const demoRedactCarousel = createDemoCarousel("Redact", "redact", redactTheme);
+export const demoNeoprintCarousel = createDemoCarousel("Neoprint", "neoprint", neoprintTheme);
 
-export const demoTerminalCarousel = createDemoCarousel(
-  `${data.name} - Terminal`,
-  "v17-terminal",
-  terminalV17Theme,
-);
-
-export const demoBrutalistCarousel = createDemoCarousel(
-  `${data.name} - Brutalist`,
-  "v21-brutalist",
-  brutalistV21Theme,
-);
-
-export const demoNeoprintCarousel = createDemoCarousel(
-  `${data.name} - Neoprint`,
-  "v24-neoprint",
-  neoprintV24Theme,
-);
-
-export const demoCarousel: CarouselData = {
-  name: data.name,
-  variant: "v16-manifest",
-  theme: manifestV16Theme,
-  slides: data.slides,
-};
+export const demoCarousels = [
+  demoManifestCarousel,
+  demoTerminalCarousel,
+  demoGazetteCarousel,
+  demoBlueprintCarousel,
+  demoPolaroidCarousel,
+  demoBrutalistCarousel,
+  demoVaporCarousel,
+  demoRedactCarousel,
+  demoNeoprintCarousel,
+];

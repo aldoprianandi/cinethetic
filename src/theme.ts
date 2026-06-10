@@ -4,7 +4,7 @@ const threeByFourCanvas = {width: 1080, height: 1440};
 const fourByFiveCanvas = {width: 1080, height: 1350};
 
 export const defaultCarouselTheme: CarouselTheme = {
-  canvas: {width: 1080, height: 1350},
+  canvas: fourByFiveCanvas,
   spacing: {
     outerX: 88,
     outerY: 88,
@@ -41,579 +41,7 @@ export const defaultCarouselTheme: CarouselTheme = {
   },
 };
 
-export const editorialV2Theme: CarouselTheme = {
-  ...defaultCarouselTheme,
-  colors: {
-    ...defaultCarouselTheme.colors,
-    fg: "#f6f1e8",
-    muted: "#bcb1a1",
-    accent: "#c3a06a",
-    panel: "rgba(15, 15, 19, 0.82)",
-    panelBorder: "rgba(255, 241, 214, 0.14)",
-  },
-  typography: {
-    ...defaultCarouselTheme.typography,
-    displayFamily: "\"Cormorant Garamond\", Georgia, serif",
-    bodyFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    coverTitleLarge: 138,
-    coverTitleMedium: 122,
-    coverTitleSmall: 104,
-    subtitleSize: 22,
-    promptHeadingSize: 30,
-    promptBodySize: 22,
-    metaSize: 17,
-    ctaSize: 18,
-  },
-};
-
-export const studioV3Theme: CarouselTheme = {
-  ...defaultCarouselTheme,
-  spacing: {
-    ...defaultCarouselTheme.spacing,
-    outerX: 94,
-    outerY: 94,
-  },
-  colors: {
-    ...defaultCarouselTheme.colors,
-    bg: "#060607",
-    fg: "#f2efe9",
-    muted: "#9d9891",
-    accent: "#8b8174",
-    overlayStrong: "rgba(7, 7, 9, 0.88)",
-    overlaySoft: "rgba(8, 8, 10, 0.2)",
-    panel: "rgba(12, 12, 15, 0.9)",
-    panelBorder: "rgba(255, 255, 255, 0.08)",
-  },
-  typography: {
-    ...defaultCarouselTheme.typography,
-    displayFamily: "\"Sora Variable\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    bodyFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 17,
-    counterSize: 17,
-    coverTitleLarge: 90,
-    coverTitleMedium: 80,
-    coverTitleSmall: 70,
-    subtitleSize: 20,
-    promptHeadingSize: 22,
-    promptBodySize: 22,
-    metaSize: 16,
-    ctaSize: 17,
-  },
-  radius: {
-    panel: 22,
-  },
-};
-
-export const monolithV4Theme: CarouselTheme = {
-  ...defaultCarouselTheme,
-  canvas: threeByFourCanvas,
-  spacing: {
-    outerX: 96,
-    outerY: 98,
-    previewGap: 40,
-  },
-  colors: {
-    ...defaultCarouselTheme.colors,
-    fg: "#f4eee3",
-    muted: "#a9a092",
-    accent: "#b88f59",
-    overlayStrong: "rgba(6, 6, 8, 0.86)",
-    panel: "rgba(12, 12, 16, 0.9)",
-  },
-  typography: {
-    ...defaultCarouselTheme.typography,
-    displayFamily: "\"Archivo Black\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    bodyFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 18,
-    counterSize: 18,
-    coverTitleLarge: 122,
-    coverTitleMedium: 108,
-    coverTitleSmall: 94,
-    subtitleSize: 22,
-    promptBodySize: 24,
-  },
-};
-
-export const galleryV5Theme: CarouselTheme = {
-  ...defaultCarouselTheme,
-  canvas: threeByFourCanvas,
-  spacing: {
-    outerX: 92,
-    outerY: 92,
-    previewGap: 40,
-  },
-  colors: {
-    ...defaultCarouselTheme.colors,
-    fg: "#f6f1e7",
-    muted: "#b5ac9d",
-    accent: "#c5a77c",
-    panel: "rgba(18, 17, 20, 0.82)",
-    panelBorder: "rgba(255, 242, 214, 0.16)",
-  },
-  typography: {
-    ...defaultCarouselTheme.typography,
-    displayFamily: "\"DM Serif Display\", Georgia, serif",
-    bodyFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 16,
-    counterSize: 17,
-    coverTitleLarge: 116,
-    coverTitleMedium: 104,
-    coverTitleSmall: 92,
-    subtitleSize: 20,
-    promptHeadingSize: 28,
-    promptBodySize: 22,
-  },
-  radius: {
-    panel: 28,
-  },
-};
-
-export const sideRailV6Theme: CarouselTheme = {
-  ...defaultCarouselTheme,
-  canvas: threeByFourCanvas,
-  spacing: {
-    outerX: 88,
-    outerY: 94,
-    previewGap: 40,
-  },
-  colors: {
-    ...defaultCarouselTheme.colors,
-    bg: "#07080a",
-    fg: "#edf0f2",
-    muted: "#98a1a7",
-    accent: "#7d8a96",
-    overlayStrong: "rgba(7, 8, 10, 0.88)",
-    panel: "rgba(13, 15, 18, 0.92)",
-    panelBorder: "rgba(255, 255, 255, 0.08)",
-  },
-  typography: {
-    ...defaultCarouselTheme.typography,
-    displayFamily: "\"Space Grotesk\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    bodyFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 15,
-    counterSize: 16,
-    coverTitleLarge: 92,
-    coverTitleMedium: 82,
-    coverTitleSmall: 72,
-    subtitleSize: 19,
-    promptHeadingSize: 22,
-    promptBodySize: 21,
-  },
-  radius: {
-    panel: 22,
-  },
-};
-
-export const bottomBandV7Theme: CarouselTheme = {
-  ...defaultCarouselTheme,
-  canvas: threeByFourCanvas,
-  spacing: {
-    outerX: 90,
-    outerY: 90,
-    previewGap: 40,
-  },
-  colors: {
-    ...defaultCarouselTheme.colors,
-    fg: "#f3efe6",
-    muted: "#aba596",
-    accent: "#9e8b69",
-    overlayStrong: "rgba(8, 8, 10, 0.78)",
-    panel: "rgba(12, 12, 14, 0.92)",
-    panelBorder: "rgba(255, 255, 255, 0.08)",
-  },
-  typography: {
-    ...defaultCarouselTheme.typography,
-    displayFamily: "\"Barlow Condensed\", \"Arial Narrow\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    bodyFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 16,
-    counterSize: 16,
-    coverTitleLarge: 124,
-    coverTitleMedium: 108,
-    coverTitleSmall: 96,
-    subtitleSize: 21,
-    promptBodySize: 22,
-  },
-};
-
-export const splitEditorialV8Theme: CarouselTheme = {
-  ...defaultCarouselTheme,
-  canvas: threeByFourCanvas,
-  spacing: {
-    outerX: 90,
-    outerY: 92,
-    previewGap: 40,
-  },
-  colors: {
-    ...defaultCarouselTheme.colors,
-    fg: "#f5f0e9",
-    muted: "#b6aca0",
-    accent: "#c09a72",
-    panel: "rgba(18, 16, 20, 0.84)",
-    panelBorder: "rgba(255, 242, 224, 0.14)",
-  },
-  typography: {
-    ...defaultCarouselTheme.typography,
-    displayFamily: "\"DM Serif Display\", Georgia, serif",
-    bodyFamily: "\"Space Grotesk\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 16,
-    counterSize: 16,
-    coverTitleLarge: 104,
-    coverTitleMedium: 94,
-    coverTitleSmall: 82,
-    subtitleSize: 19,
-    promptHeadingSize: 24,
-    promptBodySize: 21,
-  },
-  radius: {
-    panel: 24,
-  },
-};
-
-export const archiveSheetV9Theme: CarouselTheme = {
-  ...defaultCarouselTheme,
-  canvas: threeByFourCanvas,
-  spacing: {
-    outerX: 86,
-    outerY: 88,
-    previewGap: 40,
-  },
-  colors: {
-    ...defaultCarouselTheme.colors,
-    fg: "#f2ede4",
-    muted: "#a89f92",
-    accent: "#b59874",
-    overlayStrong: "rgba(7, 7, 8, 0.82)",
-    panel: "rgba(244, 238, 226, 0.08)",
-    panelBorder: "rgba(255, 244, 224, 0.18)",
-  },
-  typography: {
-    ...defaultCarouselTheme.typography,
-    displayFamily: "\"Cormorant Garamond\", Georgia, serif",
-    bodyFamily: "\"Space Grotesk\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 15,
-    counterSize: 16,
-    coverTitleLarge: 110,
-    coverTitleMedium: 98,
-    coverTitleSmall: 84,
-    subtitleSize: 19,
-    promptHeadingSize: 26,
-    promptBodySize: 20,
-  },
-  radius: {
-    panel: 18,
-  },
-};
-
-export const techLuxeV10Theme: CarouselTheme = {
-  ...defaultCarouselTheme,
-  canvas: threeByFourCanvas,
-  spacing: {
-    outerX: 90,
-    outerY: 90,
-    previewGap: 40,
-  },
-  colors: {
-    ...defaultCarouselTheme.colors,
-    bg: "#050608",
-    fg: "#eef2f5",
-    muted: "#97a2ab",
-    accent: "#7c95aa",
-    overlayStrong: "rgba(6, 8, 10, 0.86)",
-    panel: "rgba(10, 13, 17, 0.88)",
-    panelBorder: "rgba(171, 201, 228, 0.18)",
-  },
-  typography: {
-    ...defaultCarouselTheme.typography,
-    displayFamily: "\"Sora Variable\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    bodyFamily: "\"Space Grotesk\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 15,
-    counterSize: 16,
-    coverTitleLarge: 98,
-    coverTitleMedium: 86,
-    coverTitleSmall: 76,
-    subtitleSize: 18,
-    promptHeadingSize: 22,
-    promptBodySize: 20,
-    metaSize: 15,
-    ctaSize: 16,
-  },
-  radius: {
-    panel: 20,
-  },
-};
-
-export const storySignalV11Theme: CarouselTheme = {
-  ...defaultCarouselTheme,
-  canvas: threeByFourCanvas,
-  spacing: {
-    outerX: 86,
-    outerY: 86,
-    previewGap: 40,
-  },
-  colors: {
-    ...defaultCarouselTheme.colors,
-    bg: "#0a0b0d",
-    fg: "#f5f0e8",
-    muted: "#a49a8c",
-    accent: "#d37f4f",
-    overlayStrong: "rgba(6, 6, 8, 0.82)",
-    overlaySoft: "rgba(12, 12, 14, 0.2)",
-    panel: "rgba(17, 18, 22, 0.86)",
-    panelBorder: "rgba(255, 244, 224, 0.12)",
-  },
-  typography: {
-    ...defaultCarouselTheme.typography,
-    displayFamily: "\"DM Serif Display\", Georgia, serif",
-    bodyFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 15,
-    counterSize: 16,
-    coverTitleLarge: 110,
-    coverTitleMedium: 98,
-    coverTitleSmall: 84,
-    subtitleSize: 21,
-    promptHeadingSize: 24,
-    promptBodySize: 21,
-    metaSize: 15,
-    ctaSize: 18,
-  },
-  radius: {
-    panel: 28,
-  },
-};
-
-export const storyIvoryV12Theme: CarouselTheme = {
-  ...defaultCarouselTheme,
-  canvas: threeByFourCanvas,
-  spacing: {
-    outerX: 82,
-    outerY: 82,
-    previewGap: 40,
-  },
-  colors: {
-    ...defaultCarouselTheme.colors,
-    bg: "#f3ede3",
-    fg: "#241f1a",
-    muted: "#9a8065",
-    accent: "#ce7647",
-    overlayStrong: "rgba(32, 26, 20, 0.1)",
-    overlaySoft: "rgba(255, 255, 255, 0.18)",
-    panel: "rgba(255, 252, 247, 0.9)",
-    panelBorder: "rgba(55, 43, 33, 0.08)",
-  },
-  typography: {
-    ...defaultCarouselTheme.typography,
-    displayFamily: "\"Cormorant Garamond\", Georgia, serif",
-    bodyFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 15,
-    counterSize: 16,
-    coverTitleLarge: 104,
-    coverTitleMedium: 92,
-    coverTitleSmall: 80,
-    subtitleSize: 20,
-    promptHeadingSize: 24,
-    promptBodySize: 21,
-    metaSize: 15,
-    ctaSize: 18,
-  },
-  radius: {
-    panel: 26,
-  },
-};
-
-export const storyBurntV13Theme: CarouselTheme = {
-  ...defaultCarouselTheme,
-  canvas: threeByFourCanvas,
-  spacing: {
-    outerX: 88,
-    outerY: 88,
-    previewGap: 40,
-  },
-  colors: {
-    ...defaultCarouselTheme.colors,
-    bg: "#8c4320",
-    fg: "#fff5ee",
-    muted: "rgba(255, 227, 208, 0.72)",
-    accent: "#f5c38d",
-    overlayStrong: "rgba(99, 42, 14, 0.2)",
-    overlaySoft: "rgba(255, 255, 255, 0.06)",
-    panel: "rgba(125, 60, 29, 0.34)",
-    panelBorder: "rgba(255, 229, 207, 0.14)",
-  },
-  typography: {
-    ...defaultCarouselTheme.typography,
-    displayFamily: "\"Cormorant Garamond\", Georgia, serif",
-    bodyFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 16,
-    counterSize: 16,
-    coverTitleLarge: 102,
-    coverTitleMedium: 92,
-    coverTitleSmall: 80,
-    subtitleSize: 20,
-    promptHeadingSize: 24,
-    promptBodySize: 21,
-    metaSize: 15,
-    ctaSize: 18,
-  },
-  radius: {
-    panel: 28,
-  },
-};
-
-export const storyProofV14Theme: CarouselTheme = {
-  ...defaultCarouselTheme,
-  canvas: threeByFourCanvas,
-  spacing: {
-    outerX: 82,
-    outerY: 82,
-    previewGap: 40,
-  },
-  colors: {
-    ...defaultCarouselTheme.colors,
-    bg: "#f7f2ea",
-    fg: "#181614",
-    muted: "#9d866e",
-    accent: "#d07f4f",
-    overlayStrong: "rgba(0, 0, 0, 0.06)",
-    overlaySoft: "rgba(255, 255, 255, 0.18)",
-    panel: "rgba(255, 255, 255, 0.92)",
-    panelBorder: "rgba(24, 22, 20, 0.08)",
-  },
-  typography: {
-    ...defaultCarouselTheme.typography,
-    displayFamily: "\"Sora Variable\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    bodyFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 15,
-    counterSize: 16,
-    coverTitleLarge: 90,
-    coverTitleMedium: 82,
-    coverTitleSmall: 74,
-    subtitleSize: 19,
-    promptHeadingSize: 24,
-    promptBodySize: 20,
-    metaSize: 15,
-    ctaSize: 17,
-  },
-  radius: {
-    panel: 24,
-  },
-};
-
-export const storyNoirV15Theme: CarouselTheme = {
-  ...defaultCarouselTheme,
-  canvas: threeByFourCanvas,
-  spacing: {
-    outerX: 88,
-    outerY: 88,
-    previewGap: 40,
-  },
-  colors: {
-    ...defaultCarouselTheme.colors,
-    bg: "#0a0a0b",
-    fg: "#f4efe7",
-    muted: "#a69480",
-    accent: "#c57b4c",
-    overlayStrong: "rgba(8, 8, 9, 0.88)",
-    overlaySoft: "rgba(255, 255, 255, 0.03)",
-    panel: "rgba(18, 17, 18, 0.86)",
-    panelBorder: "rgba(255, 244, 224, 0.1)",
-  },
-  typography: {
-    ...defaultCarouselTheme.typography,
-    displayFamily: "\"DM Serif Display\", Georgia, serif",
-    bodyFamily: "\"Space Grotesk\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 15,
-    counterSize: 16,
-    coverTitleLarge: 98,
-    coverTitleMedium: 88,
-    coverTitleSmall: 78,
-    subtitleSize: 19,
-    promptHeadingSize: 24,
-    promptBodySize: 20,
-    metaSize: 15,
-    ctaSize: 17,
-  },
-  radius: {
-    panel: 22,
-  },
-};
-
-export const launchSignatureTheme: CarouselTheme = {
-  ...galleryV5Theme,
-  canvas: fourByFiveCanvas,
-  spacing: {
-    outerX: 82,
-    outerY: 84,
-    previewGap: 34,
-  },
-  colors: {
-    ...galleryV5Theme.colors,
-    bg: "#09090b",
-    fg: "#f4efe6",
-    muted: "#b7ab9a",
-    accent: "#ca8f5a",
-    overlayStrong: "rgba(8, 8, 10, 0.84)",
-    overlaySoft: "rgba(10, 10, 12, 0.22)",
-    panel: "rgba(18, 17, 20, 0.88)",
-    panelBorder: "rgba(255, 241, 220, 0.14)",
-  },
-  typography: {
-    ...galleryV5Theme.typography,
-    displayFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    bodyFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 15,
-    counterSize: 16,
-    coverTitleLarge: 108,
-    coverTitleMedium: 94,
-    coverTitleSmall: 82,
-    subtitleSize: 20,
-    promptHeadingSize: 22,
-    promptBodySize: 21,
-    metaSize: 15,
-    ctaSize: 17,
-  },
-  radius: {
-    panel: 26,
-  },
-};
-
-export const launchStudioTheme: CarouselTheme = {
-  ...storyIvoryV12Theme,
-  canvas: fourByFiveCanvas,
-  spacing: {
-    outerX: 78,
-    outerY: 78,
-    previewGap: 34,
-  },
-  colors: {
-    ...storyIvoryV12Theme.colors,
-    bg: "#f2ece3",
-    fg: "#1f1a16",
-    muted: "#8f775f",
-    accent: "#c86e45",
-    panel: "rgba(255, 252, 247, 0.92)",
-    panelBorder: "rgba(43, 35, 28, 0.08)",
-  },
-  typography: {
-    ...storyIvoryV12Theme.typography,
-    displayFamily: "\"Cormorant Garamond\", Georgia, serif",
-    bodyFamily: "\"Inter Tight\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    labelSize: 14,
-    counterSize: 15,
-    coverTitleLarge: 98,
-    coverTitleMedium: 88,
-    coverTitleSmall: 76,
-    subtitleSize: 19,
-    promptHeadingSize: 22,
-    promptBodySize: 20,
-    metaSize: 15,
-    ctaSize: 17,
-  },
-  radius: {
-    panel: 24,
-  },
-};
-
-export const manifestV16Theme: CarouselTheme = {
+export const manifestTheme: CarouselTheme = {
   ...defaultCarouselTheme,
   canvas: threeByFourCanvas,
   spacing: {
@@ -652,7 +80,7 @@ export const manifestV16Theme: CarouselTheme = {
   },
 };
 
-export const terminalV17Theme: CarouselTheme = {
+export const terminalTheme: CarouselTheme = {
   ...defaultCarouselTheme,
   canvas: threeByFourCanvas,
   spacing: {
@@ -691,7 +119,7 @@ export const terminalV17Theme: CarouselTheme = {
   },
 };
 
-export const gazetteV18Theme: CarouselTheme = {
+export const gazetteTheme: CarouselTheme = {
   ...defaultCarouselTheme,
   canvas: threeByFourCanvas,
   spacing: {
@@ -730,7 +158,7 @@ export const gazetteV18Theme: CarouselTheme = {
   },
 };
 
-export const blueprintV19Theme: CarouselTheme = {
+export const blueprintTheme: CarouselTheme = {
   ...defaultCarouselTheme,
   canvas: threeByFourCanvas,
   spacing: { outerX: 68, outerY: 68, previewGap: 40 },
@@ -757,7 +185,7 @@ export const blueprintV19Theme: CarouselTheme = {
   radius: { panel: 4 },
 };
 
-export const polaroidV20Theme: CarouselTheme = {
+export const polaroidTheme: CarouselTheme = {
   ...defaultCarouselTheme,
   canvas: threeByFourCanvas,
   spacing: { outerX: 92, outerY: 92, previewGap: 40 },
@@ -784,7 +212,7 @@ export const polaroidV20Theme: CarouselTheme = {
   radius: { panel: 4 },
 };
 
-export const brutalistV21Theme: CarouselTheme = {
+export const brutalistTheme: CarouselTheme = {
   ...defaultCarouselTheme,
   canvas: threeByFourCanvas,
   spacing: { outerX: 56, outerY: 56, previewGap: 40 },
@@ -811,7 +239,7 @@ export const brutalistV21Theme: CarouselTheme = {
   radius: { panel: 0 },
 };
 
-export const vaporV22Theme: CarouselTheme = {
+export const vaporTheme: CarouselTheme = {
   ...defaultCarouselTheme,
   canvas: threeByFourCanvas,
   spacing: { outerX: 80, outerY: 80, previewGap: 40 },
@@ -838,7 +266,7 @@ export const vaporV22Theme: CarouselTheme = {
   radius: { panel: 28 },
 };
 
-export const redactV23Theme: CarouselTheme = {
+export const redactTheme: CarouselTheme = {
   ...defaultCarouselTheme,
   canvas: threeByFourCanvas,
   spacing: { outerX: 78, outerY: 78, previewGap: 40 },
@@ -865,7 +293,7 @@ export const redactV23Theme: CarouselTheme = {
   radius: { panel: 0 },
 };
 
-export const neoprintV24Theme: CarouselTheme = {
+export const neoprintTheme: CarouselTheme = {
   ...defaultCarouselTheme,
   canvas: threeByFourCanvas,
   spacing: { outerX: 74, outerY: 74, previewGap: 40 },
