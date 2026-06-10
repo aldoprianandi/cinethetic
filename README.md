@@ -9,7 +9,7 @@
 
 ![Cinethetic — one JSON file, nine themes](docs/hero.png)
 
-Write your carousel once as structured JSON, then render it through any theme. Typography, color, spacing, pagination, and export stay consistent across the whole deck — change the theme import and every slide follows.
+Write your carousel once as structured JSON, then render it through any theme. Typography, color, spacing, pagination, and export stay consistent across the whole deck — switch the theme registration and every slide follows.
 
 <p align="center">
   <img src="docs/theme-reel.gif" width="390" alt="The same slide content cycling through all nine themes" />
@@ -105,21 +105,24 @@ out/demo/
 ## How It Works
 
 ```text
-carousel-content.json     what the slides say (typed slide data)
+carousel-content.json       what the slides say (typed slide data)
+        │  validated by src/data/validateCarouselContent.ts
         │
-src/theme.ts              how it looks (canvas, color, type, spacing)
+src/data/demo-variants.json which themes are registered for the demo
         │
-src/compositions/         how it renders
+src/theme.ts                how it looks (canvas, color, type, spacing)
+        │
+src/compositions/           how it renders
   carousel/
-    slides/               one module per slide type (title, quote, tips, ...)
-    variants.ts           per-theme layout flags
-    palettes.ts           placeholder image palettes
-    Carousel.tsx          slide dispatcher + preview board
+    slides/                 one module per slide type (title, quote, tips, ...)
+    variants.ts             per-theme layout flags
+    palettes.ts             placeholder image palettes
+    Carousel.tsx            slide dispatcher + preview board
         │
-remotion still            deterministic PNG export
+remotion still              deterministic PNG export
 ```
 
-Slide content is data, not design. The demo deck uses five slide types (`text-title`, `text-quote`, `text-tips`, `text-compare`, `story-cta`); the renderer supports thirteen, all defined in [`src/types.ts`](src/types.ts) — including `cover`, `story-steps`, `text-stat`, and image-backed types.
+Slide content is data, not design. The demo deck uses five slide types (`text-title`, `text-quote`, `text-tips`, `text-compare`, `story-cta`); the renderer supports thirteen, all defined in [`src/types.ts`](src/types.ts) — including `cover`, `story-steps`, `text-stat`, and image-backed types. A data contract check (`npm run check:data`) validates every content file before render.
 
 ## Make It Yours
 
@@ -127,14 +130,21 @@ The 60-second version — the full recipe lives in [`docs/CUSTOMIZATION.md`](doc
 
 **1. Change what the slides say.** Edit
 [`src/data/posts/demo-carousel/carousel-content.json`](src/data/posts/demo-carousel/carousel-content.json)
-and keep the `type` fields valid.
+and keep the `type` fields valid. Then run `npm run check:data`.
 
-**2. Change how they look.** In
-[`src/data/posts/demo-carousel/post-data.ts`](src/data/posts/demo-carousel/post-data.ts),
-swap the theme and variant:
+**2. Change how they look.** Demo registrations live in
+[`src/data/demo-variants.json`](src/data/demo-variants.json) — each entry pairs a
+theme export with a variant name:
 
-```ts
-export const myCarousel = createDemoCarousel("Mine", "gazette", gazetteTheme);
+```json
+{
+  "name": "gazette",
+  "displayName": "Gazette",
+  "variant": "gazette",
+  "theme": "gazetteTheme",
+  "compositionPrefix": "DemoGazette",
+  "public": true
+}
 ```
 
 **3. Export.**
@@ -143,7 +153,7 @@ export const myCarousel = createDemoCarousel("Mine", "gazette", gazetteTheme);
 npx remotion still src/index.ts DemoGazetteSlide out/my-slide.png --props='{"slideIndex": 0}'
 ```
 
-To add a whole new theme: add a theme object in `src/theme.ts`, a variant name in `src/types.ts`, register it in `src/Root.tsx`, and add it to `scripts/render-demo.mjs`. Theme-specific layout tweaks hang off the flags in `src/compositions/carousel/variants.ts`.
+To add a whole new theme: add a theme object in `src/theme.ts`, a variant name in `src/types.ts`, an entry in `src/data/demo-variants.json` (plus the allowlists in `scripts/check-data.mjs`), and theme-specific layout tweaks via the flags in `src/compositions/carousel/variants.ts`.
 
 ## Commands
 
@@ -153,9 +163,11 @@ To add a whole new theme: add a theme object in `src/theme.ts`, a variant name i
 | `npm run render:demo` | Render all themes (or pass one: `-- terminal`) |
 | `npm run render:reel` | Render the animated theme reel GIF |
 | `npm run render:hero` | Render the hero banner |
+| `npm run check:data` | Validate carousel content and theme registrations |
+| `npm run test:data` | Run the data-validation tests |
 | `npm run typecheck` | TypeScript check |
 | `npm run check:public` | Scan tracked files for unsafe content |
-| `npm run verify` | Full pre-publish check (safety, types, compositions, smoke render, audit) |
+| `npm run verify` | Full pre-publish check (safety, data, types, compositions, render, audit) |
 
 ## Scope
 

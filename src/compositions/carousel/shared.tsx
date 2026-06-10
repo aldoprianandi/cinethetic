@@ -4,7 +4,7 @@ import type {CarouselData} from "../../types";
 import {imagePlaceholderStyle} from "./palettes";
 import {getVariantFlags} from "./variants";
 
-export const previewScale = 0.29;
+export const maxPreviewScale = 0.29;
 
 export const getCoverTitleMetrics = (title: string, large: number, medium: number, small: number) => {
   const length = title.length;

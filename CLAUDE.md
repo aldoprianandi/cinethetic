@@ -31,6 +31,8 @@ Useful targeted checks:
 
 ```bash
 npm run check:public
+npm run check:data
+npm run test:data
 npm run typecheck
 npm run compositions
 npm run render:demo -- manifest
@@ -63,12 +65,13 @@ npm run render:hero
 
 - Prefer the existing React and Remotion composition patterns.
 - Keep slide data typed through `src/types.ts`.
+- Keep public demo variants registered through `src/data/demo-variants.json`.
 - Keep themes centralized in `src/theme.ts` unless there is a clear reason to split them.
 - When adding a theme, also add or update:
   - the `CarouselVariant` union in `src/types.ts`
   - per-theme layout flags in `src/compositions/carousel/variants.ts`
-  - composition registration in `src/Root.tsx`
-  - demo rendering support in `scripts/render-demo.mjs`
+  - public demo registration in `src/data/demo-variants.json`
+  - data validation allowlists in `scripts/check-data.mjs`
   - README examples or preview references when user-facing
 - When adding a slide type, update `src/types.ts`, add a slide module in `src/compositions/carousel/slides/`, and register it in the `renderSlide` dispatcher in `src/compositions/carousel/Carousel.tsx`.
 - Avoid one-off layout hacks that only work for the current demo text.

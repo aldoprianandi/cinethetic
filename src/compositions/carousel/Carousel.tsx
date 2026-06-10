@@ -1,7 +1,7 @@
 import React from "react";
 import {AbsoluteFill} from "remotion";
 import type {CarouselData, CarouselSlide} from "../../types";
-import {labelStyle, previewScale} from "./shared";
+import {labelStyle, maxPreviewScale} from "./shared";
 import {getPreviewBackground, getVariantFlags} from "./variants";
 import {CoverSlideView} from "./slides/CoverSlide";
 import {ResultSlideView} from "./slides/ResultSlide";
@@ -46,7 +46,7 @@ export const renderSlide = (slide: CarouselSlide, carousel: CarouselData, slideI
     case "text-title":
       return <TextTitleSlideView slide={slide} carousel={carousel} slideIndex={slideIndex} />;
     default:
-      return null;
+      throw new Error(`Unsupported slide type: ${(slide as {type?: string}).type ?? "unknown"}`);
   }
 };
 
@@ -64,13 +64,22 @@ export const CarouselPreviewComposition: React.FC<{carousel: CarouselData}> = ({
   const {theme, slides, name} = carousel;
   const {isManifest, isGazette, isPolaroid, isBrutalist, isRedact} = getVariantFlags(carousel);
   const isLightPreview = isManifest || isGazette || isPolaroid || isBrutalist || isRedact;
+  const previewPaddingX = 60;
+  const availablePreviewWidth = 1920 - previewPaddingX * 2;
+  const rowCount = Math.max(1, Math.ceil(slides.length / 5));
+  const cardsPerRow = Math.max(1, Math.ceil(slides.length / rowCount));
+  const previewScale = Math.min(
+    maxPreviewScale,
+    (availablePreviewWidth - theme.spacing.previewGap * (cardsPerRow - 1)) /
+      (theme.canvas.width * cardsPerRow),
+  );
 
   return (
     <AbsoluteFill
       style={{
         background: getPreviewBackground(carousel),
         color: theme.colors.fg,
-        padding: "48px 60px 56px 60px",
+        padding: `48px ${previewPaddingX}px 56px ${previewPaddingX}px`,
         fontFamily: theme.typography.bodyFamily,
         gap: 34,
       }}
@@ -100,7 +109,9 @@ export const CarouselPreviewComposition: React.FC<{carousel: CarouselData}> = ({
         style={{
           display: "flex",
           alignItems: "flex-start",
+          flexWrap: "wrap",
           gap: theme.spacing.previewGap,
+          rowGap: 28,
         }}
       >
         {slides.map((slide, index) => {

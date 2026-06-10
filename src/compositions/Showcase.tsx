@@ -7,7 +7,7 @@ import {
   demoManifestCarousel,
   demoNeoprintCarousel,
   demoTerminalCarousel,
-} from "../data/posts/demo-carousel/post-data";
+} from "../demo-variants";
 import type {CarouselData} from "../types";
 
 // One frame per theme; rendered as a looping GIF at 1 fps.

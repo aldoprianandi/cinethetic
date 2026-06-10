@@ -1,0 +1,74 @@
+[
+  {
+    "name": "manifest",
+    "displayName": "Manifest",
+    "variant": "manifest",
+    "theme": "manifestTheme",
+    "compositionPrefix": "DemoManifest",
+    "public": true
+  },
+  {
+    "name": "terminal",
+    "displayName": "Terminal",
+    "variant": "terminal",
+    "theme": "terminalTheme",
+    "compositionPrefix": "DemoTerminal",
+    "public": true
+  },
+  {
+    "name": "gazette",
+    "displayName": "Gazette",
+    "variant": "gazette",
+    "theme": "gazetteTheme",
+    "compositionPrefix": "DemoGazette",
+    "public": true
+  },
+  {
+    "name": "blueprint",
+    "displayName": "Blueprint",
+    "variant": "blueprint",
+    "theme": "blueprintTheme",
+    "compositionPrefix": "DemoBlueprint",
+    "public": true
+  },
+  {
+    "name": "polaroid",
+    "displayName": "Polaroid",
+    "variant": "polaroid",
+    "theme": "polaroidTheme",
+    "compositionPrefix": "DemoPolaroid",
+    "public": true
+  },
+  {
+    "name": "brutalist",
+    "displayName": "Brutalist",
+    "variant": "brutalist",
+    "theme": "brutalistTheme",
+    "compositionPrefix": "DemoBrutalist",
+    "public": true
+  },
+  {
+    "name": "vapor",
+    "displayName": "Vapor",
+    "variant": "vapor",
+    "theme": "vaporTheme",
+    "compositionPrefix": "DemoVapor",
+    "public": true
+  },
+  {
+    "name": "redact",
+    "displayName": "Redact",
+    "variant": "redact",
+    "theme": "redactTheme",
+    "compositionPrefix": "DemoRedact",
+    "public": true
+  },
+  {
+    "name": "neoprint",
+    "displayName": "Neoprint",
+    "variant": "neoprint",
+    "theme": "neoprintTheme",
+    "compositionPrefix": "DemoNeoprint",
+    "public": true
+  }
+]
