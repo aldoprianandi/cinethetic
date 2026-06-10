@@ -45,6 +45,9 @@ node scripts/render-demo.mjs manifest
 node scripts/render-demo.mjs terminal
 node scripts/render-demo.mjs brutalist
 node scripts/render-demo.mjs neoprint
+# also: gazette, blueprint, polaroid, vapor, redact
+npm run render:reel
+npm run render:hero
 ```
 
 ## Public Safety Rules
@@ -62,10 +65,12 @@ node scripts/render-demo.mjs neoprint
 - Keep slide data typed through `src/types.ts`.
 - Keep themes centralized in `src/theme.ts` unless there is a clear reason to split them.
 - When adding a theme, also add or update:
+  - the `CarouselVariant` union in `src/types.ts`
+  - per-theme layout flags in `src/compositions/carousel/variants.ts`
   - composition registration in `src/Root.tsx`
   - demo rendering support in `scripts/render-demo.mjs`
   - README examples or preview references when user-facing
-- When adding a slide type, update the type definitions and renderer logic together.
+- When adding a slide type, update `src/types.ts`, add a slide module in `src/compositions/carousel/slides/`, and register it in the `renderSlide` dispatcher in `src/compositions/carousel/Carousel.tsx`.
 - Avoid one-off layout hacks that only work for the current demo text.
 
 ## Documentation Rules

@@ -1,184 +1,166 @@
 # Cinethetic
 
-Small public Remotion, React, and TypeScript demo for JSON-driven carousel visuals.
+**One JSON file. Nine themes.** Programmable social carousels rendered with Remotion, React, and TypeScript.
 
-Cinethetic shows one simple idea: keep slide content in structured data, then render it through reusable visual themes. It is intentionally small, public-safe, and built as a clean example rather than a production content engine.
+[![CI](https://github.com/aldoprianandi/cinethetic/actions/workflows/ci.yml/badge.svg)](https://github.com/aldoprianandi/cinethetic/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-black.svg)](LICENSE)
+[![Node 22+](https://img.shields.io/badge/node-%E2%89%A522-339933.svg?logo=node.js&logoColor=white)](.nvmrc)
+[![Made with Remotion](https://img.shields.io/badge/made%20with-Remotion-4290f5.svg)](https://www.remotion.dev)
 
-![Cinethetic manifest demo](docs/demo-manifest-preview.png)
+![Cinethetic — one JSON file, nine themes](docs/hero.png)
 
-## Why This Exists
+Write your carousel once as structured JSON, then render it through any theme. Typography, color, spacing, pagination, and export stay consistent across the whole deck — change the theme import and every slide follows.
 
-Designing one carousel manually is fine. Repeating the same layout decisions across many slides gets slow. This repo keeps the demo content in JSON and lets React/Remotion handle layout, typography, pagination, and export.
+<p align="center">
+  <img src="docs/theme-reel.gif" width="390" alt="The same slide content cycling through all nine themes" />
+</p>
+<p align="center"><em>The exact same slide data, cycling through all nine themes.</em></p>
 
-## What It Includes
+## Theme Gallery
 
-- Remotion still compositions for carousel-style slides
-- React + TypeScript renderer components
-- JSON-driven demo content
-- reusable theme variants using the same content
-- design-system notes in `DESIGN-SYSTEM.md`
-- rendering scripts for demo slides and previews
+Every preview below renders the **same** `carousel-content.json`.
 
-## Demo
+| Manifest | Terminal | Gazette |
+| --- | --- | --- |
+| ![Manifest](docs/demo-manifest-preview.png) | ![Terminal](docs/demo-terminal-preview.png) | ![Gazette](docs/demo-gazette-preview.png) |
 
-The public demo is defined in:
+| Blueprint | Polaroid | Brutalist |
+| --- | --- | --- |
+| ![Blueprint](docs/demo-blueprint-preview.png) | ![Polaroid](docs/demo-polaroid-preview.png) | ![Brutalist](docs/demo-brutalist-preview.png) |
 
-- `src/data/posts/demo-carousel/carousel-content.json`
-- `src/data/posts/demo-carousel/post-data.ts`
-- `src/compositions/InstagramCarousel.tsx`
-- `src/Root.tsx`
+| Vapor | Redact | Neoprint |
+| --- | --- | --- |
+| ![Vapor](docs/demo-vapor-preview.png) | ![Redact](docs/demo-redact-preview.png) | ![Neoprint](docs/demo-neoprint-preview.png) |
 
-The same content is registered in four theme variants:
+Each theme is a small typed object in [`src/theme.ts`](src/theme.ts):
 
-- `DemoManifestSlide` / `DemoManifestPreview`
-- `DemoTerminalSlide` / `DemoTerminalPreview`
-- `DemoBrutalistSlide` / `DemoBrutalistPreview`
-- `DemoNeoprintSlide` / `DemoNeoprintPreview`
+| Theme | Personality |
+| --- | --- |
+| `manifestTheme` | Warm paper, hard black display type |
+| `terminalTheme` | Phosphor green on black, monospace |
+| `gazetteTheme` | Newsprint serif with a red accent |
+| `blueprintTheme` | Technical blue with a drafting grid |
+| `polaroidTheme` | Cream garamond, snapshot framing |
+| `brutalistTheme` | Acid yellow, shouting headlines |
+| `vaporTheme` | Deep purple, magenta glow |
+| `redactTheme` | Monochrome dossier, condensed caps |
+| `neoprintTheme` | Dark navy, orange halftone print |
 
-## Theme Variations
+## Up Close
 
-| Manifest                                              | Terminal                                              |
-| ----------------------------------------------------- | ----------------------------------------------------- |
-| ![Manifest variation](docs/demo-manifest-preview.png) | ![Terminal variation](docs/demo-terminal-preview.png) |
+Slides render at full social resolution (1080×1440). A few close-ups:
 
-| Brutalist                                               | Neoprint                                              |
-| ------------------------------------------------------- | ----------------------------------------------------- |
-| ![Brutalist variation](docs/demo-brutalist-preview.png) | ![Neoprint variation](docs/demo-neoprint-preview.png) |
+<p align="center">
+  <img src="docs/slides/brutalist-slide-01.png" width="24%" alt="Brutalist title slide" />
+  <img src="docs/slides/gazette-slide-01.png" width="24%" alt="Gazette title slide" />
+  <img src="docs/slides/blueprint-slide-01.png" width="24%" alt="Blueprint title slide" />
+  <img src="docs/slides/vapor-slide-01.png" width="24%" alt="Vapor title slide" />
+</p>
 
-## Commands
+And one full deck (Manifest) showing the slide types used by the demo — title, quote, tips, compare, and CTA:
+
+<p align="center">
+  <img src="docs/slides/manifest-slide-01.png" width="19%" alt="Manifest title slide" />
+  <img src="docs/slides/manifest-slide-02.png" width="19%" alt="Manifest quote slide" />
+  <img src="docs/slides/manifest-slide-03.png" width="19%" alt="Manifest tips slide" />
+  <img src="docs/slides/manifest-slide-04.png" width="19%" alt="Manifest compare slide" />
+  <img src="docs/slides/manifest-slide-05.png" width="19%" alt="Manifest CTA slide" />
+</p>
+
+## Quick Start
 
 Requires Node.js 22 or newer.
 
 ```bash
+git clone https://github.com/aldoprianandi/cinethetic.git
+cd cinethetic
 npm install
-npm run verify
+npm run dev        # open Remotion Studio and browse every theme
 ```
 
-Open Remotion Studio:
+Render the full demo (all nine themes, every slide plus a preview board):
 
 ```bash
-npm run dev
-```
-
-Useful individual commands:
-
-```bash
-npm run check:public
-npm run compositions
-npm run typecheck
-npm run render:slide
-npm run render:preview
 npm run render:demo
 ```
 
-Rendered files are written to `out/`.
-
-To render one variant only:
+Render a single theme:
 
 ```bash
-node scripts/render-demo.mjs manifest
-node scripts/render-demo.mjs terminal
 node scripts/render-demo.mjs brutalist
-node scripts/render-demo.mjs neoprint
 ```
 
-## How To Customize
-
-For a practical recipe, see [`docs/CUSTOMIZATION.md`](docs/CUSTOMIZATION.md).
-
-### 1. Edit The Content
-
-Open:
-
-```text
-src/data/posts/demo-carousel/carousel-content.json
-```
-
-Change the slide text while keeping the slide `type` fields. The current demo uses:
-
-- `text-title`
-- `text-quote`
-- `text-tips`
-- `text-compare`
-- `story-cta`
-
-Supported slide types are defined in `src/types.ts`.
-
-### 2. Switch The Theme
-
-Open:
-
-```text
-src/data/posts/demo-carousel/post-data.ts
-```
-
-Change the theme import and `variant` value. Available themes live in `src/theme.ts`, including:
-
-- `manifestV16Theme`
-- `terminalV17Theme`
-- `brutalistV21Theme`
-- `neoprintV24Theme`
-- `gazetteV18Theme`
-- `blueprintV19Theme`
-- `polaroidV20Theme`
-
-### 3. Add A New Carousel
-
-1. Copy `src/data/posts/demo-carousel/` to `src/data/posts/my-carousel/`.
-2. Edit `carousel-content.json`.
-3. Export a new `CarouselData` object in the new `post-data.ts`.
-4. Import it in `src/compositions/InstagramCarousel.tsx`.
-5. Register a slide and preview composition in `src/Root.tsx`.
-6. Run `npm run compositions` and render with `remotion still`.
-
-### 4. Render All Demo Slides
-
-```bash
-npm run render:demo
-```
-
-Output:
+Rendered files are written to `out/` (git-ignored):
 
 ```text
 out/demo/
-  manifest/
-    preview.png
-    slides/slide-01.png
-  terminal/
   brutalist/
-  neoprint/
+    preview.png
+    slides/slide-01.png ... slide-05.png
+  manifest/
+  terminal/
+  ...
 ```
 
-## Project Shape
+## How It Works
 
 ```text
-src/
-  compositions/InstagramCarousel.tsx
-  data/posts/demo-carousel/
-  theme.ts
-  types.ts
-scripts/
-  design-system.mjs
-  mock-shared.mjs
-  palette-test.mjs
-docs/
-  demo-*-preview.png
+carousel-content.json     what the slides say (typed slide data)
+        │
+src/theme.ts              how it looks (canvas, color, type, spacing)
+        │
+src/compositions/         how it renders
+  carousel/
+    slides/               one module per slide type (title, quote, tips, ...)
+    variants.ts           per-theme layout flags
+    palettes.ts           placeholder image palettes
+    Carousel.tsx          slide dispatcher + preview board
+        │
+remotion still            deterministic PNG export
 ```
+
+Slide content is data, not design. The demo deck uses five slide types (`text-title`, `text-quote`, `text-tips`, `text-compare`, `story-cta`); the renderer supports thirteen, all defined in [`src/types.ts`](src/types.ts) — including `cover`, `story-steps`, `text-stat`, and image-backed types.
+
+## Make It Yours
+
+The 60-second version — the full recipe lives in [`docs/CUSTOMIZATION.md`](docs/CUSTOMIZATION.md).
+
+**1. Change what the slides say.** Edit
+[`src/data/posts/demo-carousel/carousel-content.json`](src/data/posts/demo-carousel/carousel-content.json)
+and keep the `type` fields valid.
+
+**2. Change how they look.** In
+[`src/data/posts/demo-carousel/post-data.ts`](src/data/posts/demo-carousel/post-data.ts),
+swap the theme and variant:
+
+```ts
+export const myCarousel = createDemoCarousel("Mine", "gazette", gazetteTheme);
+```
+
+**3. Export.**
+
+```bash
+npx remotion still src/index.ts DemoGazetteSlide out/my-slide.png --props='{"slideIndex": 0}'
+```
+
+To add a whole new theme: add a theme object in `src/theme.ts`, a variant name in `src/types.ts`, register it in `src/Root.tsx`, and add it to `scripts/render-demo.mjs`. Theme-specific layout tweaks hang off the flags in `src/compositions/carousel/variants.ts`.
+
+## Commands
+
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Remotion Studio with every composition |
+| `npm run render:demo` | Render all themes (or pass one: `-- terminal`) |
+| `npm run render:reel` | Render the animated theme reel GIF |
+| `npm run render:hero` | Render the hero banner |
+| `npm run typecheck` | TypeScript check |
+| `npm run check:public` | Scan tracked files for unsafe content |
+| `npm run verify` | Full pre-publish check (safety, types, compositions, smoke render, audit) |
 
 ## Scope
 
-This is a renderer demo, not a production workflow. It excludes private content operations, brand assets, generated output, environment files, local assistant commands, and internal worktrees.
-
-## Public Safety
-
-Before publishing changes, run:
-
-```bash
-npm run verify
-```
-
-Security and public-safety notes live in [`SECURITY.md`](SECURITY.md).
+This is a renderer demo, not a production content engine. It deliberately excludes content operations, brand assets, schedulers, and platform upload logic. Security and public-safety notes live in [`SECURITY.md`](SECURITY.md).
 
 ## License
 
-MIT.
+[MIT](LICENSE)

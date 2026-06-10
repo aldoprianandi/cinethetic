@@ -46,17 +46,23 @@ src/data/posts/demo-carousel/post-data.ts
 
 Use one of the existing theme exports:
 
-- `manifestV16Theme`
-- `terminalV17Theme`
-- `brutalistV21Theme`
-- `neoprintV24Theme`
-- `gazetteV18Theme`
-- `blueprintV19Theme`
-- `polaroidV20Theme`
+- `manifestTheme`
+- `terminalTheme`
+- `gazetteTheme`
+- `blueprintTheme`
+- `polaroidTheme`
+- `brutalistTheme`
+- `vaporTheme`
+- `redactTheme`
+- `neoprintTheme`
+
+Each theme pairs with a variant name from the `CarouselVariant` union in `src/types.ts` (for example `gazetteTheme` + `"gazette"`). The variant drives per-theme layout decisions via the flags in `src/compositions/carousel/variants.ts`.
 
 When adding a new theme, update:
 
 - `src/theme.ts`
+- the `CarouselVariant` union in `src/types.ts`
+- the flags in `src/compositions/carousel/variants.ts`
 - `src/Root.tsx`
 - `scripts/render-demo.mjs`
 - `README.md` if the theme is part of the public demo
@@ -66,10 +72,11 @@ When adding a new theme, update:
 Slide types are intentionally explicit. To add one:
 
 1. Add the TypeScript type in `src/types.ts`.
-2. Add render logic in `src/compositions/InstagramCarousel.tsx`.
-3. Add a safe demo example in `carousel-content.json`.
-4. Run `npm run typecheck`.
-5. Render at least one still to inspect layout.
+2. Add a slide module in `src/compositions/carousel/slides/` (one file per slide type).
+3. Register it in the `renderSlide` dispatcher in `src/compositions/carousel/Carousel.tsx`.
+4. Add a safe demo example in `carousel-content.json`.
+5. Run `npm run typecheck`.
+6. Render at least one still to inspect layout.
 
 Avoid one-off layout fixes that only work for a single sentence. The renderer should tolerate normal copy length changes.
 
